@@ -26,3 +26,5 @@ jobs:
             run: python train.py
         - name: Upload model
             run: python upload_model.py
+
+#Q2:in docker , RUN command uses to run once , CMD can run multipule times and for ant part , looks like that : CMD:["python"],["train.py"]
