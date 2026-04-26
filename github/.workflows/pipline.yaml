@@ -1,31 +1,31 @@
 name: ML Docker Pipeline # missing :
-  on:  #indetation 
-    push: #indetation 
-      branches: #indetation 
-              [main] #missing []
-  jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout repository
-            uses: actions/checkout@v4
-  
-          - name: Build docker image
-              run: docker build ml-project #remove .
-              run: docker compose ml-project #add compose
-  
-      run-pipeline:
-        runs-on: ubuntu-latest #missing :
-        steps:
-          - name: Run container
-              run: docker run ml-project
-          - name: install deps #was missing
-              run: python pip install requirements.txt 
-          - name: fetch data #was missing
-              run: python fetch_data.py
-          - name: train the model #was missing 
-              run: python train.py
-          - name: Upload model
-              run: python upload_model.py
-  
-  #Q2:in docker , RUN command uses to run once , CMD can run multipule times and for ant part , looks like that : CMD:["python"],["train.py"]
+on:  #indetation 
+  push: #indetation 
+    branches: #indetation 
+            [main] #missing []
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Build docker image
+            run: docker build ml-project #remove .
+            run: docker compose ml-project #add compose
+
+    run-pipeline:
+      runs-on: ubuntu-latest #missing :
+      steps:
+        - name: Run container
+            run: docker run ml-project
+        - name: install deps #was missing
+            run: python pip install requirements.txt 
+        - name: fetch data #was missing
+            run: python fetch_data.py
+        - name: train the model #was missing 
+            run: python train.py
+        - name: Upload model
+            run: python upload_model.py
+
+#Q2:in docker , RUN command uses to run once , CMD can run multipule times and for ant part , looks like that : CMD:["python"],["train.py"]
