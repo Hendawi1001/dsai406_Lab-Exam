@@ -12,6 +12,7 @@ name: ML Docker Pipeline
   
           - name: Build docker image
               run: docker build ml-project
+              run: docker compose ml-project
   
       run-pipeline:
         runs-on: ubuntu-latest
